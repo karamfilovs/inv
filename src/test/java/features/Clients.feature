@@ -13,7 +13,7 @@ Feature: Clients tests http://inv.bg/clients/manage
     And I delete all clients
 
 
-  Scenario Outline: Add new client with valid data
+  Scenario Outline: Can add new client with valid information/data
     When I navigate to Clients page
     Then Add New Client button should contain text "Нов клиент"
     When I create new client with name "<name>" and vat "<vat>" and address "<address>" and town "<town>"
