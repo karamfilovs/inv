@@ -15,6 +15,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.slf4j.Logger;
@@ -41,6 +42,7 @@ public class StepDefinitions {
     private CashBoxPage cashBoxPage;
     private ForgottenPasswordPage forgottenPasswordPage;
     WebDriver driver;
+    private boolean headless = Boolean.valueOf(System.getProperty("headless"));
 
 
     private void startBrowser(String browser) {
@@ -49,7 +51,9 @@ public class StepDefinitions {
             configureBrowser(browser);
         }
         if (browser.equalsIgnoreCase("chrome")) {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.setHeadless(true);
+            driver = new ChromeDriver(options);
             configureBrowser(browser);
         }
 

@@ -92,7 +92,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <rerunFailingTestsCount>1</rerunFailingTestsCount>
+                    <systemPropertyVariables>
+                        <headless>false</headless>
+                    </systemPropertyVariables>
                 </configuration>
+
                 <version>2.19.1</version>
             </plugin>
             <plugin>
