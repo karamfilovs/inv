@@ -4,12 +4,6 @@ Feature: Login tests http://inv.bg/login
   Background:
     Given user is at the Login page
 
-  Scenario: Dummy login
-    When I enter username "dummy"
-    And I enter password "dummy"
-    And I press Login button
-    Then login error message with text should be displayed "text"
-
   Scenario Outline: Cant login with invalid credentials
     When I enter username "<username>" and password "<password>" and click Login button
     Then login error message with text should be displayed "<error_message>"
@@ -30,4 +24,5 @@ Feature: Login tests http://inv.bg/login
   Scenario: Can login successfully
     When I enter username "karamfilovs@gmail.com" and password "123456" and click Login button
     Then user panel should contain text "karamfilovs@gmail.com"
+
 
