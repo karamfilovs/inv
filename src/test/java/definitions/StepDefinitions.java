@@ -52,7 +52,7 @@ public class StepDefinitions {
         }
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
-            options.setHeadless(true);
+            options.setHeadless(headless);
             driver = new ChromeDriver(options);
             configureBrowser(browser);
         }
