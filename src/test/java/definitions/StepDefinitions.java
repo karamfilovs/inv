@@ -209,7 +209,7 @@ public class StepDefinitions {
 
     @When("^I delete all clients")
     public void deleteAllClients() {
-        clientPage.deleteAllClients();
+        deleteAllClientsAPILevel();
     }
 
     @Then("^login error message with text should be displayed \"(.*)\"$")

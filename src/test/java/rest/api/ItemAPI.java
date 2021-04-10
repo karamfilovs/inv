@@ -31,7 +31,7 @@ public class ItemAPI {
 
     public void deleteAllExistingItems() {
         Response response = getAllItems();
-        List<String> idsForDeletion = ResponseUtils.getList(response, "$.*.id");
+        List<String> idsForDeletion = ResponseUtils.getList(response, "$..id");
         idsForDeletion.forEach(id -> deleteItem(id));
     }
 
