@@ -1,6 +1,5 @@
 package definitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -17,7 +16,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest.api.ClientAPI;
@@ -327,5 +325,10 @@ public class StepDefinitions {
                 .assertThat(forgottenPasswordPage.getErrorMessage())
                 .as("Error message")
                 .isEqualToIgnoringCase(error);
+    }
+
+    @Then("^income/expense success message with text should be displayed \"([^\"]*)\"$")
+    public void incomeExpenseSuccessMessageWithTextShouldBeDisplayed(String successMessage)  {
+        Assertions.assertThat(cashBoxPage.getSuccessAddMessage()).as("Item Added").contains(successMessage);
     }
 }

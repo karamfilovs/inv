@@ -9,8 +9,6 @@ Feature: Clients tests http://inv.bg/clients/manage
   Scenario: Can navigate to clients page
     When I navigate to Clients page
     Then Add New Client button should contain text "Нов клиент"
-    When I clean all clients on API level
-    And I delete all clients
 
 
   Scenario Outline: Can add new client with valid information/data

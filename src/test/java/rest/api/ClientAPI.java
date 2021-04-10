@@ -32,7 +32,7 @@ public class ClientAPI {
 
     public void deleteAllExistingClients() {
         Response response = getAllClients();
-        List<String> idsForDeletion = ResponseUtils.getList(response, "$.*.id");
+        List<String> idsForDeletion = ResponseUtils.getList(response, "$..id");
         idsForDeletion.forEach(id -> deleteClient(id));
     }
 

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import util.Constants;
 import util.enums.Pages;
 
 public class CashBoxPage {
@@ -46,6 +45,9 @@ public class CashBoxPage {
 
     @FindBy(how = How.ID, using = "handle_all")
     private WebElement selectAllItemsCheckbox;
+
+    @FindBy(how = How.XPATH, using = "//button[@class='modal-confirm__ok-button selenium-modal-ok-btn']")
+    private WebElement acceptDeletionButton;
 
 
     public CashBoxPage(WebDriver driver) {
@@ -127,8 +129,13 @@ public class CashBoxPage {
         gotoPage();
         checkAllItems();
         pressDeleteItemButton();
-        action.acceptAlert();
+        acceptDeletion();
     }
+
+    public void acceptDeletion(){
+     action.clickButton(acceptDeletionButton);
+    }
+
 
     public void checkAllItems() {
         action.clickButton(selectAllItemsCheckbox);
