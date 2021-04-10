@@ -7,7 +7,7 @@ Feature: Items tests http://inv.bg/objects/manage
 
   Scenario: Can navigate to items page
     When I navigate to Items page
-    Then Add New Item button should contain text "Нов aртикул"
+    Then Add New Item button should contain text "Нов артикул"
     When I clean all items on API level
 
 
