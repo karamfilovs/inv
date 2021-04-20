@@ -11,7 +11,6 @@ Feature: Clients tests http://inv.bg/clients/manage
     When I navigate to Clients page
     Then Add New Client button should contain text "Нов клиент"
 
-
   Scenario Outline: Can add new client with valid information/data
     When I navigate to Clients page
     Then Add New Client button should contain text "Нов клиент"
