@@ -35,6 +35,7 @@ public class StepDefinitions {
     //Page objects
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
+
     private InvoicePage invoicePage;
     private ItemPage itemPage;
     private ClientPage clientPage;
