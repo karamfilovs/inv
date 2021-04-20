@@ -41,6 +41,15 @@ public class ItemPage {
     @FindBy(how = How.XPATH, using = "//a[@class='newbtn selenium-add-item']")
     private WebElement addNewItemLink;
 
+    @FindBy(how = How.XPATH, using = "//input[@name='account']")
+    private WebElement accountField;
+
+    @FindBy(how = How.XPATH, using = "//input[contains(@name,'accounting_batch')]")
+    private WebElement accountBatchField;
+
+    @FindBy(how = How.XPATH, using = "(//div[@id='error'])[1]")
+    private WebElement errorMessage;
+
 
     public ItemPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -51,6 +60,14 @@ public class ItemPage {
         action.typeText(nameField, name);
     }
 
+    public void enterAccount(String account) {
+        action.typeText(accountField, account);
+    }
+
+    public void enterAccountBatch(String accountBatch) {
+        action.typeText(accountBatchField, accountBatch);
+    }
+
     public void enterNameENG(String name) {
         action.typeText(nameENField, name);
     }
@@ -59,7 +76,7 @@ public class ItemPage {
         action.typeText(priceField, price);
     }
 
-    public String getSuccessAddMessage(){
+    public String getSuccessAddMessage() {
         return action.getText(addSuccessMessage);
     }
 
@@ -75,7 +92,7 @@ public class ItemPage {
         action.clickButton(deleteItemButton);
     }
 
-    public void deleteAllItems(){
+    public void deleteAllItems() {
         gotoPage();
         checkAllItems();
         pressDeleteItemButton();
@@ -91,7 +108,7 @@ public class ItemPage {
         action.clickButton(addNewItemLink);
     }
 
-    public void createItem(String name, String nameENG, String price, String priceQuantity){
+    public void createItem(String name, String nameENG, String price, String priceQuantity) {
         gotoPage();
         clickAddNewItemLink();
         enterName(name);
@@ -101,17 +118,30 @@ public class ItemPage {
         pressAddItemButton();
     }
 
+    public void createItem(String name, String nameENG, String price, String priceQuantity, String account, String accountBatch) {
+        gotoPage();
+        clickAddNewItemLink();
+        enterName(name);
+        enterNameENG(nameENG);
+        enterPrice(price);
+        enterPriceForQuantity(priceQuantity);
+        enterAccount(account);
+        enterAccountBatch(accountBatch);
+        pressAddItemButton();
+    }
 
+    public String getErrorMessage() {
+        return action.getText(errorMessage);
 
+    }
 
     public void gotoPage() {
         action.gotoPage(Pages.INV_ITEM_PAGE.getPath());
     }
 
-    public String getNewItemLinkText(){
+    public String getNewItemLinkText() {
         return action.getText(addNewItemLink);
     }
-
 
 
 }
