@@ -2,10 +2,10 @@ package rest.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jayway.jsonpath.JsonPath;
 import com.jayway.restassured.response.Response;
 import rest.pojos.Client;
 import rest.utils.RESTClient;
-import rest.utils.ResponseUtils;
 import util.enums.Endpoints;
 
 import java.util.List;
@@ -32,8 +32,8 @@ public class ClientAPI {
 
     public void deleteAllExistingClients() {
         Response response = getAllClients();
-        List<String> idsForDeletion = ResponseUtils.getList(response, "$..id");
-        idsForDeletion.forEach(id -> deleteClient(id));
+        List<Integer> idsForDeletion = JsonPath.read(response.body().asString(), "$..id");
+        idsForDeletion.forEach(id -> deleteClient(String.valueOf(id)));
     }
 
 
