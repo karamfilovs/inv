@@ -333,17 +333,4 @@ public class StepDefinitions {
     public void incomeExpenseSuccessMessageWithTextShouldBeDisplayed(String successMessage)  {
         Assertions.assertThat(cashBoxPage.getSuccessAddMessage()).as("Item Added").contains(successMessage);
     }
-
-    @When("^I create new item with all fields like name \"([^\"]*)\" and nameENG \"([^\"]*)\" and price \"([^\"]*)\" and priceQuantity \"([^\"]*)\" and account \"([^\"]*)\" and accountBatch \"([^\"]*)\"$")
-    public void iCreateNewItemWithAllFieldsLikeNameAndNameENGAndPriceAndPriceQuantityAndAccountAndAccountBatch(String name, String nameEn, String price, String priceQuantity, String account, String accountBatch) {
-        itemPage.createItem(name, nameEn, price, priceQuantity, account, accountBatch);
-    }
-
-    @Then("^error message for invalid Item adding with text \"([^\"]*)\" is displayed$")
-    public void errorMessageForInvalidItemAddingWithTextIsDisplayed(String errorMessage) {
-        Assertions
-                .assertThat(itemPage.getErrorMessage())
-                .as("Error message")
-                .isEqualToIgnoringCase(errorMessage);
-    }
 }

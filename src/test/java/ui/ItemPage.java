@@ -41,16 +41,6 @@ public class ItemPage {
     @FindBy(how = How.XPATH, using = "//a[@class='newbtn selenium-add-item']")
     private WebElement addNewItemLink;
 
-    @FindBy(how = How.XPATH, using = "//input[@name='account']")
-    private WebElement accountField;
-
-    @FindBy(how = How.XPATH, using = "//input[contains(@name,'accounting_batch')]")
-    private WebElement accountBatchField;
-
-    @FindBy(how = How.XPATH, using = "(//div[@id='error'])[1]")
-    private WebElement errorMessage;
-
-
     public ItemPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         action = new PageAction(driver);
@@ -58,14 +48,6 @@ public class ItemPage {
 
     public void enterName(String name) {
         action.typeText(nameField, name);
-    }
-
-    public void enterAccount(String account) {
-        action.typeText(accountField, account);
-    }
-
-    public void enterAccountBatch(String accountBatch) {
-        action.typeText(accountBatchField, accountBatch);
     }
 
     public void enterNameENG(String name) {
@@ -99,7 +81,6 @@ public class ItemPage {
         action.acceptAlert();
     }
 
-
     public void pressAddItemButton() {
         action.clickButton(addItemButton);
     }
@@ -116,23 +97,6 @@ public class ItemPage {
         enterPrice(price);
         enterPriceForQuantity(priceQuantity);
         pressAddItemButton();
-    }
-
-    public void createItem(String name, String nameENG, String price, String priceQuantity, String account, String accountBatch) {
-        gotoPage();
-        clickAddNewItemLink();
-        enterName(name);
-        enterNameENG(nameENG);
-        enterPrice(price);
-        enterPriceForQuantity(priceQuantity);
-        enterAccount(account);
-        enterAccountBatch(accountBatch);
-        pressAddItemButton();
-    }
-
-    public String getErrorMessage() {
-        return action.getText(errorMessage);
-
     }
 
     public void gotoPage() {
