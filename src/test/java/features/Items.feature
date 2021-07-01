@@ -25,3 +25,12 @@ Feature: Items tests http://inv.bg/objects/manage
       | Кафе             | Coffee         | 10    | 1              |
       | Джони Уокър      | Johny Walker   | 25.56 | 1.1            |
       | Курс: Тестване 1 | Testing Course | 650   | 20             |
+
+  Scenario Outline: Try to create new item with invalid information - "<reason>"
+    When I navigate to Items page
+    Then Add New Item button should contain text "Нов артикул"
+    When I create new item with all fields like name "<name_bgn>" and nameEN "<name_eng>" and price "<price>" and priceQuantity "<price_quantity>" and account "<account>" and accountingBatch "<accounting_batch>"
+    Then error message for invalid item with text "Моля, въведете име/номенклатура на артикула." is displayed
+    Examples:
+      | reason      | name_bgn | name_eng | price | price_quantity | account | accounting_batch |
+      | emptyBGName |          | grape    | 10    | 45             | 2412    | 9                |
