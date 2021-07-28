@@ -27,6 +27,9 @@ public class LoginPage {
     @FindBy(how = How.XPATH, using = "//a[@class='selenium-forgotten-page']")
     private WebElement resetPasswordLink;
 
+    @FindBy(how = How.ID, using = "okmsg")
+    private WebElement okMessage;
+
 
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -73,5 +76,9 @@ public class LoginPage {
 
     public void pressResetPasswordLink() {
         resetPasswordLink.click();
+    }
+
+    public String getLogoutSuccessMessage() {
+        return action.getText(okMessage);
     }
 }

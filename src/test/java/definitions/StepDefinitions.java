@@ -1,6 +1,5 @@
 package definitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -34,7 +33,7 @@ public class StepDefinitions {
 
     //Page objects
     private LoginPage loginPage;
-    private DashboardPage dashboardPage;
+    private DashboardPage homePage;
 
     private InvoicePage invoicePage;
     private ItemPage itemPage;
@@ -102,7 +101,7 @@ public class StepDefinitions {
     }
 
 
-    @Given("^user is at the Login page$")
+    @Given("^I am the Login page$")
     public void user_is_at_Home_Page() {
         loginPage = new LoginPage(driver);
         loginPage.gotoPage();
@@ -194,7 +193,7 @@ public class StepDefinitions {
         cashBoxPage.createIncome(value, title, firmName, category, notes);
     }
 
-    @And("^I press Login button$")
+    @And("^I click Login button$")
     public void iPressLoginButton() {
         loginPage.pressLoginButton();
     }
@@ -231,10 +230,10 @@ public class StepDefinitions {
     }
 
 
-    @Then("^user panel should contain text \"(.*)\"$")
+    @Then("^logged user email should be \"(.*)\"$")
     public void userPanelShouldContain(String text) {
-        dashboardPage = new DashboardPage(driver);
-        Assertions.assertThat(dashboardPage.getUserPanelText()).as("User Panel").contains(text);
+        homePage = new DashboardPage(driver);
+        Assertions.assertThat(homePage.getUserPanelText()).as("User Panel").contains(text);
     }
 
     @Then("^Add New Item button should contain text \"(.*)\"$")
@@ -332,5 +331,18 @@ public class StepDefinitions {
     @Then("^income/expense success message with text should be displayed \"([^\"]*)\"$")
     public void incomeExpenseSuccessMessageWithTextShouldBeDisplayed(String successMessage)  {
         Assertions.assertThat(cashBoxPage.getSuccessAddMessage()).as("Item Added").contains(successMessage);
+    }
+
+    @When("^I logout from the system$")
+    public void iLogoutFromTheSystem() {
+        homePage.logout();
+    }
+
+    @Then("^logout success message should be \"([^\"]*)\"$")
+    public void logoutSuccessMessageShouldBe(String expectedMessage) {
+        String actualMessage = loginPage.getLogoutSuccessMessage();
+        Assertions.assertThat(actualMessage)
+                .isEqualToIgnoringCase(expectedMessage)
+                .as("Logout message");
     }
 }

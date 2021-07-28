@@ -15,6 +15,9 @@ public class DashboardPage {
     @FindBy(how = How.XPATH, using = "//div[@class='userpanel-header']")
     private WebElement userPanel;
 
+    @FindBy(how = How.CSS, using = "a.selenium-button-logout.button-logout")
+    private WebElement logoutLink;
+
 
     public DashboardPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -23,5 +26,10 @@ public class DashboardPage {
 
     public String getUserPanelText(){
        return action.getText(userPanel);
+    }
+
+    public void logout(){
+        action.clickButton(userPanel);
+        action.clickButton(logoutLink);
     }
 }
