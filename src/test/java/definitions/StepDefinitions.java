@@ -1,5 +1,6 @@
 package definitions;
 
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -176,6 +177,11 @@ public class StepDefinitions {
     @When("^I create new item with name \"(.*)\" and nameENG \"(.*)\" and price \"(.*)\" and priceQuantity \"(.*)\"$")
     public void createNewItem(String name, String nameENG, String price, String priceQuantity) {
         itemPage.createItem(name, nameENG, price, priceQuantity);
+    }
+
+    @When("^I create new item with all fields like name \"([^\"]*)\" and nameEN \"([^\"]*)\" and price \"([^\"]*)\" and priceQuantity \"([^\"]*)\" and amount \"([^\"]*)\" and accountBatch \"([^\"]*)\"$")
+    public void iCreateNewItemWithAllFieldsLikeNameAndNameENAndPriceAndPriceQuantityAndAmountAndAccountBatch(String name, String nameEng, String price, String priceQty, String amount, String accountBatch) {
+        itemPage.createItem(name, nameEng, price, priceQty, amount, accountBatch);
     }
 
     @When("^I create new client with name \"(.*)\" and vat \"(.*)\" and address \"(.*)\" and town \"(.*)\"$")

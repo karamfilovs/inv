@@ -15,10 +15,10 @@ Feature: Clients tests http://inv.bg/clients/manage
     When I navigate to Clients page
     Then Add New Client button should contain text "Нов клиент"
     When I create new client with name "<name>" and vat "<vat>" and address "<address>" and town "<town>"
-    Then client message with text should be displayed "<add_success>"
+    Then client message with text should be displayed "Клиентът е добавен успешно."
     Examples:
-      | name          | vat        | address           | town    | add_success                 |
-      | АЛ-ИМПОРТ ООД | 123123122  | Ruski 20          | Plovdiv | Клиентът е добавен успешно. |
-      | Pragmatic LTD | 123        | 20 Руски          | Пловдив | Клиентът е добавен успешно. |
-      | Грабо ООД     | 123123122e | ruski 20 ruski 20 | СОФИЯ   | Клиентът е добавен успешно. |
+      | name          | vat        | address           | town    |
+      | АЛ-ИМПОРТ ООД | 123123122  | Ruski 20          | Plovdiv |
+      | Pragmatic LTD | 123        | 20 Руски          | Пловдив |
+      | Грабо ООД     | 123123122e | ruski 20 ruski 20 | СОФИЯ   |
 
