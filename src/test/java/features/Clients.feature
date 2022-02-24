@@ -3,7 +3,7 @@ Feature: Clients tests http://inv.bg/clients/manage
 
   Background:
     Given user is logged in the system
-    Then user panel should contain text "karamfilovs@gmail.com"
+    Then logged user email should be "karamfilovs@gmail.com"
     When I delete all clients
 
 

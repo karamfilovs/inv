@@ -3,7 +3,7 @@ package rest.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jayway.jsonpath.JsonPath;
-import com.jayway.restassured.response.Response;
+import io.restassured.response.Response;
 import rest.pojos.Client;
 import rest.utils.RESTClient;
 import util.enums.Endpoints;

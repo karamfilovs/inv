@@ -2,7 +2,7 @@
 Feature: Login tests http://inv.bg/login
 
   Background:
-    Given user is at the Login page
+    Given I am at the Login page
 
   Scenario Outline: Cant login with invalid credentials
     When I enter username "<username>" and password "<password>" and click Login button
@@ -17,12 +17,12 @@ Feature: Login tests http://inv.bg/login
   Scenario: Can login with valid credentials
     When I enter username "karamfilovs@gmail.com"
     And I enter password "123456"
-    And I press Login button
-    Then user panel should contain text "karamfilovs@gmail.com"
+    And I click Login button
+    Then logged user email should be "karamfilovs@gmail.com"
 
 
   Scenario: Can login successfully
     When I enter username "karamfilovs@gmail.com" and password "123456" and click Login button
-    Then user panel should contain text "karamfilovs@gmail.com"
+    Then logged user email should be "karamfilovs@gmail.com"
 
 

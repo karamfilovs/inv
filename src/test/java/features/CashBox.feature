@@ -3,7 +3,7 @@ Feature: CashBox tests http://inv.bg/cashbox
 
   Background:
     Given user is logged in the system
-    Then user panel should contain text "karamfilovs@gmail.com"
+    Then logged user email should be "karamfilovs@gmail.com"
 
   Scenario Outline: Create new expense
     When I navigate to CashBox page

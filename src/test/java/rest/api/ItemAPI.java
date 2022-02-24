@@ -2,7 +2,7 @@ package rest.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.jayway.restassured.response.Response;
+import io.restassured.response.Response;
 import rest.pojos.Item;
 import rest.utils.RESTClient;
 import rest.utils.ResponseUtils;
@@ -31,8 +31,8 @@ public class ItemAPI {
 
     public void deleteAllExistingItems() {
         Response response = getAllItems();
-        List<String> idsForDeletion = ResponseUtils.getList(response, "$..id");
-        idsForDeletion.forEach(id -> deleteItem(id));
+        List<Integer> idsForDeletion = ResponseUtils.getList(response, "$..id");
+        idsForDeletion.forEach(id -> deleteItem(String.valueOf(id)));
     }
 
 

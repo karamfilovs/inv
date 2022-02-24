@@ -1,4 +1,4 @@
-# Simple Cucumber Test Framework (INB.BG)
+# Simple Cucumber Test Framework (INV.BG)
 
 <h4>Tools and Frameworks(preconditions)</h4>
 Install JDK 8+<br>

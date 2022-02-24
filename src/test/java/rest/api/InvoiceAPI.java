@@ -2,7 +2,7 @@ package rest.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.jayway.restassured.response.Response;
+import io.restassured.response.Response;
 import rest.pojos.Invoice;
 import rest.utils.RESTClient;
 import rest.utils.ResponseUtils;
@@ -32,8 +32,8 @@ public class InvoiceAPI {
 
     public void deleteAllExistingInvoices() {
         Response response = getAllInvoices();
-        List<String> idsForDeletion = ResponseUtils.getList(response, "$.invoices.*.id");
-        idsForDeletion.forEach(id -> deleteInvoice(id));
+        List<Integer> idsForDeletion = ResponseUtils.getList(response, "$.invoices.*.id");
+        idsForDeletion.forEach(id -> deleteInvoice(String.valueOf(id)));
     }
 
 }

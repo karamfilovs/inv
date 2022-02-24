@@ -41,7 +41,7 @@ public class StepDefinitions {
     private CashBoxPage cashBoxPage;
     private ForgottenPasswordPage forgottenPasswordPage;
     WebDriver driver;
-    private boolean headless = Boolean.valueOf(System.getProperty("headless"));
+    private boolean headless = Boolean.parseBoolean(System.getProperty("headless"));
 
 
     private void startBrowser(String browser) {

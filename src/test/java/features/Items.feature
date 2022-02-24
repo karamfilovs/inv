@@ -3,7 +3,7 @@ Feature: Items tests http://inv.bg/objects/manage
 
   Background:
     Given user is logged in the system
-    Then user panel should contain text "karamfilovs@gmail.com"
+    Then logged user email should be "karamfilovs@gmail.com"
 
   Scenario: Can navigate to items page
     When I navigate to Items page
