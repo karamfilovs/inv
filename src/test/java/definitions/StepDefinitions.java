@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rest.api.ClientAPI;
@@ -47,7 +48,9 @@ public class StepDefinitions {
 
     private void startBrowser(String browser) {
         if (browser.equalsIgnoreCase("firefox")) {
-            driver = new FirefoxDriver();
+            FirefoxOptions options = new FirefoxOptions();
+            options.setHeadless(headless);
+            driver = new FirefoxDriver(options);
             configureBrowser(browser);
         }
         if (browser.equalsIgnoreCase("chrome")) {
@@ -72,9 +75,8 @@ public class StepDefinitions {
 
     @Before
     public void before() {
-        WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
-        startBrowser("chrome");
+        startBrowser("firefox");
     }
 
     @After
@@ -350,5 +352,15 @@ public class StepDefinitions {
         Assertions.assertThat(actualMessage)
                 .isEqualToIgnoringCase(expectedMessage)
                 .as("Logout message");
+    }
+
+    @Given("^a VIP subscriber with payment method Visa in trial phase$")
+    public void aVIPSubscriberWithPaymentMethodVisaInTrialPhase() {
+        //I should write the java code
+    }
+
+    @When("^the trial period is ending at least (\\d+) days before the subscription converts to paid$")
+    public void theTrialPeriodIsEndingAtLeastDaysBeforeTheSubscriptionConvertsToPaid(int arg0) {
+
     }
 }
