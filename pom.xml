@@ -81,11 +81,14 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.1.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-jvm-deps -->
         <dependency>
-            <groupId>io.cucumber</groupId>
+            <groupId>info.cukes</groupId>
             <artifactId>cucumber-jvm-deps</artifactId>
-            <version>1.0.6</version>
+            <version>1.0.3</version>
+            <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
     <build>
