@@ -181,11 +181,6 @@ public class StepDefinitions {
         itemPage.createItem(name, nameENG, price, priceQuantity);
     }
 
-    @When("^I create new item with all fields like name \"([^\"]*)\" and nameEN \"([^\"]*)\" and price \"([^\"]*)\" and priceQuantity \"([^\"]*)\" and amount \"([^\"]*)\" and accountBatch \"([^\"]*)\"$")
-    public void iCreateNewItemWithAllFieldsLikeNameAndNameENAndPriceAndPriceQuantityAndAmountAndAccountBatch(String name, String nameEng, String price, String priceQty, String amount, String accountBatch) {
-        itemPage.createItem(name, nameEng, price, priceQty, amount, accountBatch);
-    }
-
     @When("^I create new client with name \"(.*)\" and vat \"(.*)\" and address \"(.*)\" and town \"(.*)\"$")
     public void createNewClient(String name, String vat, String address, String town) {
         clientPage.createClient(name, vat, address, town);
@@ -224,11 +219,6 @@ public class StepDefinitions {
     @Then("^login error message with text should be displayed \"(.*)\"$")
     public void loginErrorMessage(String errorMessage) {
         loginPage.verifyMessage(errorMessage);
-    }
-
-    @Then("^item message with text should be displayed \"(.*)\"$")
-    public void itemSuccessMessage(String successMessage) {
-        Assertions.assertThat(itemPage.getSuccessAddMessage()).as("Item Added").contains(successMessage);
     }
 
 
