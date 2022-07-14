@@ -11,3 +11,4 @@ Feature: Invoices tests http://inv.bg/clients/manage
     Then Add New Invoice button should contain text "Нова фактура"
     When I clean all invoices on API level
   # Add your steps here to finish the example
+

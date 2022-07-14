@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import util.Constants;
 import util.enums.Pages;
 
 public class ItemPage {
@@ -41,12 +40,6 @@ public class ItemPage {
     @FindBy(how = How.XPATH, using = "//a[@class='newbtn selenium-add-item']")
     private WebElement addNewItemLink;
 
-    @FindBy(how= How.XPATH, using = "//input[@name='account']")
-    private WebElement amountField;
-
-    @FindBy(how= How.XPATH, using = "//input[@name='accounting_batch']")
-    private WebElement accountBatchField;
-
     public ItemPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         action = new PageAction(driver);
@@ -58,14 +51,6 @@ public class ItemPage {
 
     public void enterNameENG(String name) {
         action.typeText(nameENField, name);
-    }
-
-    public void enterAmount(String amount) {
-        action.typeText(amountField, amount);
-    }
-
-    public void enterAccountBatch(String accountingBatch) {
-        action.typeText(accountBatchField, accountingBatch);
     }
 
     public void enterPrice(String price) {
@@ -110,18 +95,6 @@ public class ItemPage {
         enterNameENG(nameENG);
         enterPrice(price);
         enterPriceForQuantity(priceQuantity);
-        pressAddItemButton();
-    }
-
-    public void createItem(String name, String nameENG, String price, String priceQuantity, String amount, String accountBatch) {
-        gotoPage();
-        clickAddNewItemLink();
-        enterName(name);
-        enterNameENG(nameENG);
-        enterPrice(price);
-        enterPriceForQuantity(priceQuantity);
-        enterAmount(amount);
-        enterAccountBatch(accountBatch);
         pressAddItemButton();
     }
 

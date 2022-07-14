@@ -25,14 +25,3 @@ Feature: Items tests http://inv.bg/objects/manage
       | Кафе             | Coffee         | 10    | 1              |
       | Джони Уокър      | Johny Walker   | 25.56 | 1.1            |
       | Курс: Тестване 1 | Testing Course | 650   | 20             |
-
-
-    Scenario: Can create new item with all fields
-      When I navigate to Items page
-      And I wait 1 second for the students to see what is going on
-      Then Add New Item button should contain text "Нов артикул"
-      And I wait 1 second for the students to see what is going on
-      When I create new item with all fields like name "Yabalka" and nameEN "Apple" and price "5.00" and priceQuantity "1" and amount "1" and accountBatch "5"
-      Then item message with text should be displayed "Артикулът е добавен успешно."
-      When I delete all items
-      Then item message with text should be displayed "Избраните артикули бяха изтрити успешно."
