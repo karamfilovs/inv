@@ -28,6 +28,12 @@ public class ItemPage {
     @FindBy(how = How.NAME, using = "price_quantity")
     private WebElement priceQuantityField;
 
+    @FindBy(how = How.XPATH, using = "//input[@name='account']")
+    private WebElement accountField;
+
+    @FindBy(how = How.XPATH, using = "//input[@name='accounting_batch']")
+    private WebElement accountBatchField;
+
     @FindBy(how = How.NAME, using = "do_submit")
     private WebElement addItemButton;
 
@@ -55,6 +61,14 @@ public class ItemPage {
 
     public void enterPrice(String price) {
         action.typeText(priceField, price);
+    }
+
+    public void enterAccount(String account){
+        action.typeText(accountField, account);
+    }
+
+    public void enterAccountBatch(String accountBatch){
+        action.typeText(accountBatchField, accountBatch);
     }
 
     public String getSuccessAddMessage() {
@@ -95,6 +109,18 @@ public class ItemPage {
         enterNameENG(nameENG);
         enterPrice(price);
         enterPriceForQuantity(priceQuantity);
+        pressAddItemButton();
+    }
+
+    public void createItem(String name, String nameENG, String price, String priceQuantity, String account, String accountBatch) {
+        gotoPage();
+        clickAddNewItemLink();
+        enterName(name);
+        enterNameENG(nameENG);
+        enterPrice(price);
+        enterPriceForQuantity(priceQuantity);
+        enterAccount(account);
+        enterAccountBatch(accountBatch);
         pressAddItemButton();
     }
 
