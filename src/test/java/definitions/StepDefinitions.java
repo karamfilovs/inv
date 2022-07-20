@@ -353,4 +353,16 @@ public class StepDefinitions {
     public void theTrialPeriodIsEndingAtLeastDaysBeforeTheSubscriptionConvertsToPaid(int arg0) {
 
     }
+
+    @When("^I create a new item with all fields like name \"([^\"]*)\" and nameEng \"([^\"]*)\" and price \"([^\"]*)\" and priceQuantity \"([^\"]*)\" and account \"([^\"]*)\" and accountingBatch \"([^\"]*)\"$")
+    public void iCreateANewItemWithAllFieldsLikeNameAndNameEngAndPriceAndPriceQuantityAndAccountAndAccountingBatch(String name, String nameEng, String price, String priceQuantity, String account, String accountBatch) {
+        itemPage.createItem(name, nameEng, price, priceQuantity, account, accountBatch);
+    }
+
+    @Then("^item message with text \"([^\"]*)\" should be displayed$")
+    public void itemMessageWithTextShouldBeDisplayed(String expectedMessage) {
+        String actualMessage = itemPage.getSuccessAddMessage();
+        System.out.println("TOVA E ACTUAL MESSAGE, KOLEGI: " + actualMessage);
+        Assertions.assertThat(actualMessage).isEqualToIgnoringCase(expectedMessage);
+    }
 }
