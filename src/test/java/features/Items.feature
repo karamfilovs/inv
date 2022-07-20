@@ -16,13 +16,3 @@ Feature: Items tests http://inv.bg/objects/manage
       | Кафе             | Coffee         | 10    | 1              |
       | Джони Уокър      | Johny Walker   | 25.56 | 1.1            |
       | Курс: Тестване 1 | Testing Course | 650   | 20             |
-
-
-  Scenario Outline: Can create an item with all fields
-    When I create new item with all fields like name "<name_bgn>" and nameENG "<name_eng>" and price "<price>" and quantity "<quantity>" and account "<account>" and "<accounting_batch>"
-    Then item message with text "Артикулът е добавен успешно." should be displayed
-    Then I delete all items
-    Examples:
-      | name_bgn    | name_eng    | price | quantity | account               | accounting_batch |
-      | Водка Савой | Vodka Savoy | 5.00  | 1        | 512514124141          | alcohol          |
-      | Меденка     | Medenka     | 0.30  | 5        | 742378432874327843289 | hrana            |

@@ -353,17 +353,4 @@ public class StepDefinitions {
     public void theTrialPeriodIsEndingAtLeastDaysBeforeTheSubscriptionConvertsToPaid(int arg0) {
 
     }
-
-    @When("^I create new item with all fields like name \"([^\"]*)\" and nameENG \"([^\"]*)\" and price \"([^\"]*)\" and quantity \"([^\"]*)\" and account \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void iCreateNewItemWithAllFieldsLikeNameAndNameENGAndPriceAndQuantityAndAccountAnd(String name, String nameEng, String price, String quantity, String account, String accountBatch){
-            itemPage.createItem(name, nameEng, price, quantity, account, accountBatch);
-    }
-
-    @Then("^item message with text \"([^\"]*)\" should be displayed$")
-    public void itemMessageWithTextShouldBeDisplayed(String expectedMessage) {
-        String actualMessage = itemPage.getSuccessAddMessage();
-        System.out.println("ACTUAL MESSAGE IS " + actualMessage);
-        Assertions.assertThat(actualMessage)
-                .isEqualToIgnoringCase(expectedMessage);
-    }
 }
