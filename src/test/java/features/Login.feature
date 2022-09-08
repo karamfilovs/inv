@@ -10,8 +10,8 @@ Feature: Login tests http://inv.bg/login
     Examples:
       | username              | password | error_message                                               |
       |                       |          | Моля, попълнете вашия email                                 |
-      | karamfilovs@gmail.com | 1234     | Грешно потребителско име или парола. Моля, опитайте отново! |
-      | karamfilovs@gmail     | 123456   | Грешно потребителско име или парола. Моля, опитайте отново! |
+      | karamfilovs@gmail.com | 1234     | Грешно потребителско име или парола. Моля, опитайте отново. |
+      | karamfilovs@gmail     | 123456   | Грешно потребителско име или парола. Моля, опитайте отново. |
 
 
   Scenario: Can login with valid credentials
