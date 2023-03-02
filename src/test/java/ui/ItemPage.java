@@ -40,6 +40,12 @@ public class ItemPage {
     @FindBy(how = How.XPATH, using = "//a[@class='newbtn selenium-add-item']")
     private WebElement addNewItemLink;
 
+    @FindBy(how = How.XPATH, using = "//input[@name='account']")
+    private WebElement accountField;
+
+    @FindBy(how = How.XPATH, using = "//input[@name='accounting_batch']")
+    private WebElement accountingBatchField;
+
     public ItemPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         action = new PageAction(driver);
@@ -47,6 +53,14 @@ public class ItemPage {
 
     public void enterName(String name) {
         action.typeText(nameField, name);
+    }
+
+    public void enterAccount(String account) {
+        action.typeText(accountField, account);
+    }
+
+    public void enterAccountingBatch(String accountingBatch) {
+        action.typeText(accountingBatchField, accountingBatch);
     }
 
     public void enterNameENG(String name) {
@@ -95,6 +109,18 @@ public class ItemPage {
         enterNameENG(nameENG);
         enterPrice(price);
         enterPriceForQuantity(priceQuantity);
+        pressAddItemButton();
+    }
+
+    public void createItem(String name, String nameENG, String price, String priceQuantity, String account, String accountingBatch) {
+        gotoPage();
+        clickAddNewItemLink();
+        enterName(name);
+        enterNameENG(nameENG);
+        enterPrice(price);
+        enterPriceForQuantity(priceQuantity);
+        enterAccount(account);
+        enterAccountingBatch(accountingBatch);
         pressAddItemButton();
     }
 
