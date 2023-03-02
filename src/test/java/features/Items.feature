@@ -16,3 +16,13 @@ Feature: Items tests http://inv.bg/objects/manage
       | Кафе             | Coffee         | 10    | 1              |
       | Джони Уокър      | Johny Walker   | 25.56 | 1.1            |
       | Курс: Тестване 1 | Testing Course | 650   | 20             |
+
+
+  Scenario Outline: Create an item with all fields
+    When I create a new item with name "<name_bgn>" and nameENG "<name_eng>" and price "<price>" and priceQuantity "<price_quantity>" and account "<account>" and accountingBatch "<accounting_batch>"
+    Then confirmation message for created item with text "Артикулът е добавен успешно." should be displayed
+    Examples:
+      | name_bgn         | name_eng       | price | price_quantity | account | accounting_batch |
+      | Кафе             | Coffee         | 10    | 1              | 1       | 2                |
+      | Джони Уокър      | Johny Walker   | 25.56 | 1.1            | 2       | 2                |
+      | Курс: Тестване 1 | Testing Course | 650   | 20             | 3       | 2                |

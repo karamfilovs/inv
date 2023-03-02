@@ -359,4 +359,14 @@ public class StepDefinitions {
         String actualMessage = itemPage.getSuccessAddMessage();
         Assertions.assertThat(actualMessage).isEqualToIgnoringCase(expectedMessage);
     }
+
+    @When("^I create a new item with name \"([^\"]*)\" and nameENG \"([^\"]*)\" and price \"([^\"]*)\" and priceQuantity \"([^\"]*)\" and account \"([^\"]*)\" and accountingBatch \"([^\"]*)\"$")
+    public void iCreateANewItemWithNameAndNameENGAndPriceAndPriceQuantityAndAccountAndAccountingBatch(String name, String nameEng, String price, String priceQuantity, String account, String accountingBatch) {
+        itemPage.createItem(name, nameEng, price, priceQuantity, account, accountingBatch);
+    }
+
+    @Then("^confirmation message for created item with text \"([^\"]*)\" should be displayed$")
+    public void confirmationMessageForCreatedItemWithTextShouldBeDisplayed(String text) {
+        Assertions.assertThat(itemPage.getSuccessAddMessage()).as("Артикулът е добавен успешно.").contains(text);
+    }
 }
