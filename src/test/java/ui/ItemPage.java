@@ -19,12 +19,6 @@ public class ItemPage {
     @FindBy(how = How.NAME, using = "name")
     private WebElement nameField;
 
-    @FindBy(how = How.XPATH, using = "//input[@name='account']")
-    private WebElement accountField;
-
-    @FindBy(how = How.XPATH, using = "//input[@name='accounting_batch']")
-    private WebElement accountBatchField;
-
     @FindBy(how = How.NAME, using = "name_en")
     private WebElement nameENField;
 
@@ -53,14 +47,6 @@ public class ItemPage {
 
     public void enterName(String name) {
         action.typeText(nameField, name);
-    }
-
-    public void enterAccount(String account){
-        action.typeText(accountField, account);
-    }
-
-    public void enterAccountBatch(String accountBatch){
-        action.typeText(accountBatchField, accountBatch);
     }
 
     public void enterNameENG(String name) {
@@ -109,18 +95,6 @@ public class ItemPage {
         enterNameENG(nameENG);
         enterPrice(price);
         enterPriceForQuantity(priceQuantity);
-        pressAddItemButton();
-    }
-
-    public void createItem(String name, String nameENG, String price, String priceQuantity, String account, String accountBatch) {
-        gotoPage();
-        clickAddNewItemLink();
-        enterName(name);
-        enterNameENG(nameENG);
-        enterPrice(price);
-        enterPriceForQuantity(priceQuantity);
-        enterAccount(account);
-        enterAccountBatch(accountBatch);
         pressAddItemButton();
     }
 
