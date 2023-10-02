@@ -15,6 +15,9 @@ public class DashboardPage {
     @FindBy(how = How.XPATH, using = "//div[@class='userpanel-header']")
     private WebElement userPanel;
 
+    @FindBy(how = How.XPATH, using = "//h1")
+    private WebElement companyNameHeading;
+
     @FindBy(how = How.CSS, using = "a.selenium-button-logout.button-logout")
     private WebElement logoutLink;
 
@@ -31,5 +34,9 @@ public class DashboardPage {
     public void logout(){
         action.clickButton(userPanel);
         action.clickButton(logoutLink);
+    }
+
+    public String getCompanyName() {
+       return action.getText(companyNameHeading);
     }
 }

@@ -30,6 +30,9 @@ public class LoginPage {
     @FindBy(how = How.ID, using = "okmsg")
     private WebElement okMessage;
 
+    @FindBy(how = How.ID, using = "persistent")
+    private WebElement rememberMeCheckbox;
+
 
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -80,5 +83,9 @@ public class LoginPage {
 
     public String getLogoutSuccessMessage() {
         return action.getText(okMessage);
+    }
+
+    public void rememberMe() {
+        action.clickButton(rememberMeCheckbox);
     }
 }

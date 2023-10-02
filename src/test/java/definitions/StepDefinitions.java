@@ -369,4 +369,17 @@ public class StepDefinitions {
     public void confirmationMessageForCreatedItemWithTextShouldBeDisplayed(String text) {
         Assertions.assertThat(itemPage.getSuccessAddMessage()).as("Артикулът е добавен успешно.").contains(text);
     }
+
+    @And("^I select to remember login for this computer$")
+    public void iSelectToRememberLoginForThisComputer() {
+        loginPage.rememberMe();
+    }
+
+    @And("^company name should be \"([^\"]*)\"$")
+    public void companyNameShouldBe(String companyName) {
+        Assertions.assertThat(homePage.getCompanyName())
+                .as("Company name")
+                .isEqualTo(companyName);
+        homePage.getCompanyName();
+    }
 }

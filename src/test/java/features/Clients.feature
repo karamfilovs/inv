@@ -11,14 +11,14 @@ Feature: Clients tests http://inv.bg/clients/manage
     When I navigate to Clients page
     Then Add New Client button should contain text "Нов клиент"
 
-  Scenario Outline: Can add new client with valid information/data
+  Scenario Outline: Can add new client with valid data
     When I navigate to Clients page
     Then Add New Client button should contain text "Нов клиент"
     When I create new client with name "<name>" and vat "<vat>" and address "<address>" and town "<town>"
     Then client message with text should be displayed "Клиентът е добавен успешно."
     Examples:
-      | name          | vat        | address           | town    |
-      | АЛ-ИМПОРТ ООД | 123123122  | Ruski 20          | Plovdiv |
-      | Pragmatic LTD | 123        | 20 Руски          | Пловдив |
-      | Грабо ООД     | 123123122e | ruski 20 ruski 20 | СОФИЯ   |
+      | name          | vat        | address  | town    |
+      | АЛ-ИМПОРТ ООД | 123123122  | Ruski 20 | Plovdiv |
+      | Pragmatic LTD | 123        | 20 Руски | Пловдив |
+      | Грабо ООД     | 123123122e | ruski 20 | СОФИЯ   |
 

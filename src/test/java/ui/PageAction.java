@@ -37,7 +37,7 @@ public class PageAction {
     }
 
     public void gotoPage(String page) {
-        LOGGER.info("Navigating to " + Constants.INV_URL + page + " page");
+        LOGGER.info("Navigating to: " + Constants.INV_URL + page + " page");
         driver.navigate().to(Constants.INV_URL + page);
     }
 
@@ -118,12 +118,8 @@ public class PageAction {
     }
 
     public void acceptAlert() {
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.accept(); //Handle unexpected alert on page load.
-            LOGGER.info("Accepting alert with text:" + alert.getText());
-        } catch (Exception e) {
-        }
+        driver.findElement(By.xpath("//button[@class='modal-confirm__ok-button selenium-modal-ok-btn']"));
+        LOGGER.info("Confirm deletion");
     }
 
     public String getAlertText() {
