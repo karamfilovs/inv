@@ -75,8 +75,8 @@ public class StepDefinitions {
 
     @Before
     public void before() {
-        WebDriverManager.chromedriver().setup();
-        startBrowser("chrome");
+        WebDriverManager.firefoxdriver().setup();
+        startBrowser("firefox");
     }
 
     @After

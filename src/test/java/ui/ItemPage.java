@@ -46,6 +46,10 @@ public class ItemPage {
     @FindBy(how = How.XPATH, using = "//input[@name='accounting_batch']")
     private WebElement accountingBatchField;
 
+    @FindBy(how = How.XPATH, using = "//button[@class='modal-confirm__ok-button selenium-modal-ok-btn']")
+    private WebElement confirmDeletionButton;
+
+
     public ItemPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         action = new PageAction(driver);
@@ -91,7 +95,11 @@ public class ItemPage {
         gotoPage();
         checkAllItems();
         pressDeleteItemButton();
-        action.acceptAlert();
+        confirmDeletion();
+    }
+
+    public void confirmDeletion(){
+        action.clickButton(confirmDeletionButton);
     }
 
     public void pressAddItemButton() {
