@@ -75,8 +75,8 @@ public class StepDefinitions {
 
     @Before
     public void before() {
-        WebDriverManager.firefoxdriver().setup();
-        startBrowser("firefox");
+        WebDriverManager.chromedriver().setup(); // This tells web driver manager what to download
+        startBrowser("chrome"); //This selects the browser type
     }
 
     @After
@@ -264,7 +264,6 @@ public class StepDefinitions {
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
         loginPage.pressLoginButton();
-
     }
 
     @And("^I wait (\\d+) second for the students to see what is going on$")
