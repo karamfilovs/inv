@@ -376,4 +376,11 @@ public class StepDefinitions {
                 .isEqualTo(companyName);
         homePage.getCompanyName();
     }
+
+
+
+    @When("^I create new item with name \"([^\"]*)\" and english name \"([^\"]*)\" and price \"([^\"]*)\" and quantity \"([^\"]*)\" and account \"([^\"]*)\" and accountingBatch \"([^\"]*)\"$")
+    public void iCreateNewItemWithNameAndEnglishNameAndPriceAndQuantityAndAccountAndAccountingBatch(String name, String nameEn, String price, String quantity, String account, String accountBatch) {
+        itemPage.createItem(name, nameEn, price, quantity, account, accountBatch);
+    }
 }
