@@ -43,6 +43,32 @@ public class ItemPage {
     @FindBy(how = How.XPATH, using = "//button[@class='modal-confirm__ok-button selenium-modal-ok-btn']")
     private WebElement confirmDeletionButton;
 
+    @FindBy(how = How.XPATH, using = "//input[@name='account']")
+    private WebElement accountField;
+
+    public WebElement getAccountField() {
+        return accountField;
+    }
+
+    public void setAccountField(WebElement accountField) {
+        this.accountField = accountField;
+    }
+
+    public WebElement getAccountBatchField() {
+        return accountBatchField;
+    }
+
+    public void setAccountBatchField(WebElement accountBatchField) {
+        this.accountBatchField = accountBatchField;
+    }
+
+    @FindBy(how = How.XPATH, using = "//input[@name='accounting_batch']")
+    private WebElement accountBatchField;
+
+
+
+
+
 
     public ItemPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -67,6 +93,14 @@ public class ItemPage {
 
     public void enterPriceForQuantity(String priceQuantity) {
         action.typeText(priceQuantityField, priceQuantity);
+    }
+
+    public void enterAccount(String account) {
+        action.typeText(accountField, account);
+    }
+
+    public void enterAccountBatch(String accountBatch) {
+        action.typeText(accountBatchField, accountBatch);
     }
 
     public void checkAllItems() {
@@ -103,6 +137,18 @@ public class ItemPage {
         enterNameENG(nameENG);
         enterPrice(price);
         enterPriceForQuantity(priceQuantity);
+        pressAddItemButton();
+    }
+
+    public void createItem(String name, String nameENG, String price, String priceQuantity, String account, String accountBatch) {
+        gotoPage();
+        clickAddNewItemLink();
+        enterName(name);
+        enterNameENG(nameENG);
+        enterPrice(price);
+        enterPriceForQuantity(priceQuantity);
+        enterAccount(account);
+        enterAccountBatch(accountBatch);
         pressAddItemButton();
     }
 
