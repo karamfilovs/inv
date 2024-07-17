@@ -54,22 +54,6 @@ public class ItemPage {
         this.accountField = accountField;
     }
 
-    public WebElement getAccountBatchField() {
-        return accountBatchField;
-    }
-
-    public void setAccountBatchField(WebElement accountBatchField) {
-        this.accountBatchField = accountBatchField;
-    }
-
-    @FindBy(how = How.XPATH, using = "//input[@name='accounting_batch']")
-    private WebElement accountBatchField;
-
-
-
-
-
-
     public ItemPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         action = new PageAction(driver);
@@ -97,10 +81,6 @@ public class ItemPage {
 
     public void enterAccount(String account) {
         action.typeText(accountField, account);
-    }
-
-    public void enterAccountBatch(String accountBatch) {
-        action.typeText(accountBatchField, accountBatch);
     }
 
     public void checkAllItems() {
@@ -139,19 +119,6 @@ public class ItemPage {
         enterPriceForQuantity(priceQuantity);
         pressAddItemButton();
     }
-
-    public void createItem(String name, String nameENG, String price, String priceQuantity, String account, String accountBatch) {
-        gotoPage();
-        clickAddNewItemLink();
-        enterName(name);
-        enterNameENG(nameENG);
-        enterPrice(price);
-        enterPriceForQuantity(priceQuantity);
-        enterAccount(account);
-        enterAccountBatch(accountBatch);
-        pressAddItemButton();
-    }
-
     public void gotoPage() {
         action.gotoPage(Pages.INV_ITEM_PAGE.getPath());
     }
